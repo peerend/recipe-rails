@@ -31,6 +31,24 @@ class EntriesController < ApplicationController
   def edit
     @entry = Entry.find(params[:id])
     @tags = Tag.all
+    @checked = Tag.all.map do |tag|
+      if tag.entries.include?(@entry)
+        "checked"
+      else
+        ""
+      end
+    end
     render('entries/edit.html.erb')
+  end
+
+  def update
+    @entry =Entry.find(params[:id])
+    if @entry.update(params[:entry])
+      @entry.add_tag(params)
+      flash[:notice] = "Your recipe was updated!"
+      redirect_to("/#{@entry.id}")
+    else
+      render('entries/edit.html.erb')
+    end
   end
 end

@@ -2,11 +2,11 @@
 
 <%= render('layouts/errors', :object => @entry) %>
 
-<form action="/entries" method="post">
+<form action="/entries/<%=@entry.id%>" method="post">
   <input name="_method" type="hidden" value="patch">
   <%= render('form') %>
-  <% @tags.each do |tag| %>
-    <br><input type="checkbox" name="entries_tags[tag<%= tag.id %>]" value="<%= tag.id %>"><%= tag.name %>
+  <% @tags.each_with_index do |tag, index| %>
+    <br><input type="checkbox" name="entries_tags[tag<%= tag.id %>]" <%=@checked[index]%> value="<%= tag.id %>"><%= tag.name %>
   <% end %>
   <br><button>Update recipe</button>
 </form>

@@ -7,6 +7,7 @@ class Entry < ActiveRecord::Base
   has_many :ratings
 
   def add_tag(stuff)
+    self.tags.destroy_all
     ids = stuff['entries_tags'].values.map! { |i| i.to_i }
     ids.each do |id|
       self.tags << Tag.find(id)
