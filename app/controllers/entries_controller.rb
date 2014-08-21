@@ -23,6 +23,7 @@ class EntriesController < ApplicationController
   end
 
   def show
+    @rating = Rating.new
     @entry = Entry.find(params[:id])
     render('entries/show.html.erb')
   end

@@ -1,5 +1,5 @@
 <h1><%= @entry.name %></h1>
-
+<h2>Rating: <%=@entry.average_rating%><br> Total Ratings: <%=@entry.total_ratings%></h2>
 <h3>Tags:
 <% @entry.tags.each do |tag| %>
   <span><%= tag.name + " " %></span>
@@ -7,8 +7,14 @@
 </h3>
 
 <h3>Recipe:</h3>
-
 <p><%= @entry.description %></p>
 
+
+<h4>Add a Rating:</h4>
+<form action="/ratings/<%=params[:id]%>" method="post">
+  <label for="rating">Rating</label>
+  <input id="rating" name="rating[stars]" type="number" value="<%= @rating.stars %>">
+<button>Add Rating</button>
+</form>
 <p><a href="/">Back to main page</a></p>
 <p><a href="/new-tag">Create a tag</a></p>
