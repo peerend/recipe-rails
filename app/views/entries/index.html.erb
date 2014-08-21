@@ -1,0 +1,11 @@
+<h1>Recipe Central!</h1>
+
+<h3>Recipes:</h3>
+
+<ul>
+  <% @entries.each do |entry| %>
+    <li><%= entry.name %></li>
+  <% end %>
+</ul>
+
+<p><a href="/new-entry">Submit your own recipe</a></p>
