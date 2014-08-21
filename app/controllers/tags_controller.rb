@@ -15,4 +15,9 @@ class TagsController < ApplicationController
       render('tags/new.html.erb')
     end
   end
+
+  def show
+    @tag = Tag.find(params[:id])
+    render('tags/show.html.erb')
+  end
 end

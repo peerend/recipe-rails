@@ -1,8 +1,8 @@
-<h1> Create a new tag </h1>
+<h1> All tags </h1>
 
 <ul>
   <% @tags.each do |tag| %>
-    <li><%= tag.name %></li>
+    <li><a href="/tags/<%= tag.id %>"><%= tag.name %></a></li>
   <% end %>
 </ul>
 
