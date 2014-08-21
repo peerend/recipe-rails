@@ -1,0 +1,12 @@
+default: &default
+  adapter: postgresql
+
+development:
+  <<: *default
+  database: recipe_development
+
+test:
+  <<: *default
+  database: recipe_test
+
+
