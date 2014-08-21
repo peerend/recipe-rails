@@ -1,0 +1,14 @@
+<h1>Edit <%= @entry.name %></h1>
+
+<%= render('layouts/errors', :object => @entry) %>
+
+<form action="/entries" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <%= render('form') %>
+  <% @tags.each do |tag| %>
+    <br><input type="checkbox" name="entries_tags[tag<%= tag.id %>]" value="<%= tag.id %>"><%= tag.name %>
+  <% end %>
+  <br><button>Update recipe</button>
+</form>
+
+<p><a href="/">Return to main page</a></p>

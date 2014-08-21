@@ -1,4 +1,5 @@
 <label for="entry_name">Name</label>
-  <input id="entry_name" name="entry[name]" type="text" value="<%= @entry.name %>">
-  <label for="entry_description">Recipe</label>
-  <input id="entry_description" name="entry[description]" type="text" value="<%= @entry.description %>">
+<input id="entry_name" name="entry[name]" type="text" value="<%= @entry.name %>">
+<label for="entry_description">Recipe</label>
+<br>
+<textarea id="entry_description" name="entry[description]" rows=10 cols = 40><%= @entry.description %></textarea>

@@ -27,4 +27,10 @@ class EntriesController < ApplicationController
     @entry = Entry.find(params[:id])
     render('entries/show.html.erb')
   end
+
+  def edit
+    @entry = Entry.find(params[:id])
+    @tags = Tag.all
+    render('entries/edit.html.erb')
+  end
 end
