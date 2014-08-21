@@ -4,5 +4,6 @@ class Tag < ActiveRecord::Base
   belongs_to :entry
 
   validates :name, :presence => true
+  validates :name, :uniqueness => true
 
 end

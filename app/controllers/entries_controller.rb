@@ -6,6 +6,7 @@ class EntriesController < ApplicationController
 
   def new
     @entry = Entry.new
+    @tags = Tag.all
     render('entries/new.html.erb')
   end
 
@@ -13,9 +14,16 @@ class EntriesController < ApplicationController
     @entries = Entry.all
     @entry = Entry.new(params[:entry])
     if @entry.save
+      @entry.add_tag(params)
+      flash[:notice] = "Your recipe was added!"
       redirect_to("/")
     else
       render('entries/new.html.erb')
     end
+  end
+
+  def show
+    @entry = Entry.find(params[:id])
+    render('entries/show.html.erb')
   end
 end

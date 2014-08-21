@@ -4,8 +4,9 @@
 
 <ul>
   <% @entries.each do |entry| %>
-    <li><%= entry.name %></li>
+    <li><a href="/<%= entry.id %>"><%= entry.name %></a></li>
   <% end %>
 </ul>
 
 <p><a href="/new-entry">Submit your own recipe</a></p>
+<p><a href="/new-tag">Create a tag</a></p>

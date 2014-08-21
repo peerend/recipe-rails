@@ -1,0 +1,17 @@
+<h1> Create a new tag </h1>
+
+<ul>
+  <% @tags.each do |tag| %>
+    <li><%= tag.name %></li>
+  <% end %>
+</ul>
+
+<%= render('layouts/errors', :object => @tag) %>
+
+<form action="/tags" method = "post">
+  <label for="tag_name">Tag</label>
+  <input id="tag_name" name="tag[name]" type="text" value="<%= @tag.name %>">
+  <button>Add Tag</button>
+</form>
+
+

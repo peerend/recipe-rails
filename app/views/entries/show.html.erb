@@ -1,0 +1,14 @@
+<h1><%= @entry.name %></h1>
+
+<h3>Tags:
+<% @entry.tags.each do |tag| %>
+  <span><%= tag.name + " " %></span>
+<%end%>
+</h3>
+
+<h3>Recipe:</h3>
+
+<p><%= @entry.description %></p>
+
+<p><a href="/">Back to main page</a></p>
+<p><a href="/new-tag">Create a tag</a></p>

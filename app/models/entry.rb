@@ -1,6 +1,15 @@
 class Entry < ActiveRecord::Base
 
+  validates :name, :presence => true
+  validates :description, :presence => true
+
   has_and_belongs_to_many :tags
   has_many :ratings
 
+  def add_tag(stuff)
+    ids = stuff['entries_tags'].values.map! { |i| i.to_i }
+    ids.each do |id|
+      self.tags << Tag.find(id)
+    end
+  end
 end
