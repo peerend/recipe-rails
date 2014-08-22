@@ -4,6 +4,11 @@ class EntriesController < ApplicationController
     render('entries/index.html.erb')
   end
 
+  def search
+    @entries = Entry.all
+    render('entries/searched.html.erb')
+  end
+
   def new
     @entry = Entry.new
     @tags = Tag.all
@@ -51,4 +56,11 @@ class EntriesController < ApplicationController
       render('entries/edit.html.erb')
     end
   end
+
+  def sort
+    @smart_sort = Entry.smart_sort
+    render('entries/sort.html.erb')
+  end
+
+
 end

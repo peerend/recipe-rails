@@ -1,5 +1,13 @@
 <h1>Recipe Central!</h1>
 
+<h3>Find Recipe:</h3>
+
+<form action="/entries/searched" method="post">
+  <label for="search_term">Search</label>
+  <input id="search_term" name="search_term" type="text">
+<button>Search</button>
+</form>
+
 <h3>Recipes:</h3>
 
 <ul>
@@ -10,3 +18,4 @@
 
 <p><a href="/new-entry">Submit your own recipe</a></p>
 <p><a href="/new-tag">Create a tag</a></p>
+<p><a href="/entries/sort">Trending Recipes</a></p>
