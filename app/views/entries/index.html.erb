@@ -3,8 +3,8 @@
 <h3>Recipes:</h3>
 
 <ul>
-  <% @entries.each do |entry| %>
-    <li><a href="/<%= entry.id %>"><%= entry.name %></a></li>
+  <% @entries.sort_by{|entry| entry.average_rating.to_f}.reverse.each do |entry| %>
+    <li><a href="/<%= entry.id %>"><%= entry.name %> Stars: <%=entry.average_rating%></a></li>
   <% end %>
 </ul>
 
