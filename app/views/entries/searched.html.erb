@@ -3,7 +3,3 @@
   <% Entry.search(params[:search_term]).each do |entry| %>
     <li><a href="/<%= entry.id %>"><%= entry.name %> Stars: <%=entry.average_rating%></a></li>
   <%end%>
-
-<p><a href="/new-entry">Submit your own recipe</a></p>
-<p><a href="/new-tag">Create a tag</a></p>
-<p><a href="/">Home</a></p>
